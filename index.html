@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClubPro — Туристический Бизнес Клуб</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo.jpg" alt="ClubPro" class="logo-img"> Club<span class="highlight">Pro</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#benefits">Преимущества</a></li>
+                <li><a href="#program">Программа</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-nav">Связаться</a>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-grid"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge" data-aos="fade-down">
+                <span class="badge-dot"></span> Закрытый клуб для сильных игроков туристического бизнеса
+            </div>
+            <h1 data-aos="fade-up">
+                Развивай бизнес<br>
+                в кругу профессионалов с <span class="highlight">ClubPro</span>
+            </h1>
+            <p class="hero-sub" data-aos="fade-up" data-delay="100">
+                Камерное сообщество владельцев турбизнеса, где получаешь живой опыт, 
+                честные разборы кейсов и окружение без показухи. Живые встречи, инфотуры 
+                и стратегические сессии — всё для реального роста твоего дела.
+            </p>
+            <div class="hero-actions" data-aos="fade-up" data-delay="200">
+                <a href="#contact" class="btn btn-primary btn-lg">
+                    Связаться с нами
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#about" class="btn btn-outline btn-lg">Узнать больше</a>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-delay="300">
+                <div class="stat">
+                    <span class="stat-number" data-target="2">0</span>
+                    <span class="stat-label">Встречи в месяц</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="31">0</span>
+                    <span class="stat-label">Января старт</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="1">0</span>
+                    <span class="stat-label">Пилотная волна</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#about">
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">О клубе</span>
+                <h2>Пространство для тех, кто <span class="highlight">растёт не в одиночку</span></h2>
+                <p class="section-desc">
+                    CLUB PRO — это камерное сообщество для владельцев туристического бизнеса, 
+                    где каждая встреча — это реальные решения, которые можно применить сразу.
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card" data-aos="fade-up" data-delay="0">
+                    <div class="about-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>2 оффлайн-встречи в месяц</h3>
+                    <p>Живые встречи с приглашёнными профессионалами. Свежий взгляд и экспертиза из разных сфер бизнеса.</p>
+                </div>
+                <div class="about-card" data-aos="fade-up" data-delay="100">
+                    <div class="about-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Разборы реальных кейсов</h3>
+                    <p>Регулярные живые разборы ситуаций участников. Ищем решения вместе и внедряем сразу.</p>
+                </div>
+                <div class="about-card" data-aos="fade-up" data-delay="200">
+                    <div class="about-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3>Деньги и управление</h3>
+                    <p>Понятный учёт и управленческие решения без сложных терминов и таблиц. Человеческим языком.</p>
+                </div>
+                <div class="about-card" data-aos="fade-up" data-delay="300">
+                    <div class="about-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Работа с командой</h3>
+                    <p>Найм, мотивация, сложные разговоры с сотрудниками и передача ответственности. Всё про команду.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section benefits" id="benefits">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Преимущества</span>
+                <h2>Почему выбирают <span class="highlight">ClubPro</span></h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item" data-aos="fade-right" data-delay="0">
+                    <div class="benefit-number">01</div>
+                    <div class="benefit-content">
+                        <h3>Живой опыт, не из книг</h3>
+                        <p>Здесь нет теории ради теории. Только реальный предпринимательский опыт, который можно применить уже завтра в своём деле.</p>
+                    </div>
+                </div>
+                <div class="benefit-item" data-aos="fade-right" data-delay="100">
+                    <div class="benefit-number">02</div>
+                    <div class="benefit-content">
+                        <h3>Без показухи и «успешного успеха»</h3>
+                        <p>Спокойное взрослое окружение, где можно быть честным про свой бизнес. Никакого инфобизнеса и шума.</p>
+                    </div>
+                </div>
+                <div class="benefit-item" data-aos="fade-right" data-delay="200">
+                    <div class="benefit-number">03</div>
+                    <div class="benefit-content">
+                        <h3>Личная вовлечённость</h3>
+                        <p>Пилотный формат и камерная группа — это максимальное внимание к каждому кейсу и личная обратная связь.</p>
+                    </div>
+                </div>
+                <div class="benefit-item" data-aos="fade-right" data-delay="300">
+                    <div class="benefit-number">04</div>
+                    <div class="benefit-content">
+                        <h3>Инфотуры нового формата</h3>
+                        <p>Совместные поездки и стратегические сессии, где работа над бизнесом логично сочетается с качественным отдыхом.</p>
+                    </div>
+                </div>
+                <div class="benefit-item" data-aos="fade-right" data-delay="400">
+                    <div class="benefit-number">05</div>
+                    <div class="benefit-content">
+                        <h3>Закрытый чат и общение</h3>
+                        <p>Постоянный доступ к сообществу и личной обратной связи. Здесь можно честно обсуждать свой бизнес и обмениваться опытом.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program -->
+    <section class="section program" id="program">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Программа</span>
+                <h2>Что входит в <span class="highlight">членство</span></h2>
+                <p class="section-desc">Структурированная программа для реального роста вашего туристического бизнеса.</p>
+            </div>
+            <div class="program-grid">
+                <div class="program-card" data-aos="zoom-in" data-delay="0">
+                    <div class="program-week">2 раза в месяц</div>
+                    <h3>Оффлайн встречи с экспертами</h3>
+                    <ul>
+                        <li>Приглашённые профессионалы</li>
+                        <li>Свежий взгляд из разных сфер</li>
+                        <li>Бизнес-ланчи и нетворкинг</li>
+                    </ul>
+                    <div class="program-icon">🎯</div>
+                </div>
+                <div class="program-card" data-aos="zoom-in" data-delay="100">
+                    <div class="program-week">Регулярно</div>
+                    <h3>Разбор реальных кейсов</h3>
+                    <ul>
+                        <li>Живые ситуации участников</li>
+                        <li>Поиск решений вместе</li>
+                        <li>Внедрение сразу после встречи</li>
+                    </ul>
+                    <div class="program-icon">💡</div>
+                </div>
+                <div class="program-card" data-aos="zoom-in" data-delay="200">
+                    <div class="program-week">Постоянно</div>
+                    <h3>Деньги и управление</h3>
+                    <ul>
+                        <li>Понятный учёт без сложных таблиц</li>
+                        <li>Управленческие решения</li>
+                        <li>Работа с командой и мотивация</li>
+                    </ul>
+                    <div class="program-icon">💰</div>
+                </div>
+                <div class="program-card" data-aos="zoom-in" data-delay="300">
+                    <div class="program-week">Дополнительно</div>
+                    <h3>Инфотуры и сессии</h3>
+                    <ul>
+                        <li>Стратегические выезды</li>
+                        <li>Совмещение работы и отдыха</li>
+                        <li>Участие за отдельную оплату</li>
+                    </ul>
+                    <div class="program-icon">✈️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Отзывы</span>
+                <h2>Почему участники <span class="highlight">присоединяются к клубу</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-delay="0">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Давно искала формат, где можно обсудить реальные кейсы с коллегами по турбизнесу в закрытой атмосфере. ClubPro — именно то, что нужно."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">МР</div>
+                        <div>
+                            <strong>Мадина Р.</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-delay="100">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Привлекает фокус на практику без инфобизнес-пыли. Хочу развивать турагентство с помощью реального опыта, а не теории."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">АК</div>
+                        <div>
+                            <strong>Азиз К.</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-delay="200">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Сейчас столько вызовов в туризме — курсы валют, сезонность, управление командой. Важно обсуждать это с теми, кто понимает."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ДН</div>
+                        <div>
+                            <strong>Дилшод Н.</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-delay="300">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Понравился формат инфо-туров. Это возможность и бизнес развивать, и новые направления изучать одновременно."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">СА</div>
+                        <div>
+                            <strong>Сарвар А.</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-delay="400">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Закрытая среда без выпячивания — редкость сегодня. Интересно посмотреть, как будет работать пилотная волна."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">НХ</div>
+                        <div>
+                            <strong>Нодира Х.</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-delay="500">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Два оффлайн-мита в месяц с экспертами — это то, что даст реальную пользу. Жду начала 31 января!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ФУ</div>
+                        <div>
+                            <strong>Фаррух У.</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta" id="cta">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Вход только по <span class="highlight">личному приглашению</span></h2>
+                <p>Пилотный формат с ограниченным количеством участников. Начало 31 января — станьте частью первой волны.</p>
+                <div class="cta-actions">
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        Узнать об участии
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Контакты</span>
+                <h2>Как <span class="highlight">вступить в клуб</span></h2>
+                <p class="section-desc">Напишите менеджеру Наргизе «Иду в клуб» — и вы получите всю информацию об участии.</p>
+            </div>
+            <div class="contact-info-center" data-aos="fade-up">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Telegram-чат клуба</strong>
+                            <p><a href="https://t.me/+QlhyANcyRmExNDQy" target="_blank" style="color: var(--purple-400);">t.me/+QlhyANcyRmExNDQy</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div>
+                            <strong>Менеджер клуба</strong>
+                            <p>Наргиза — свяжитесь для вступления</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Оплата членства</strong>
+                            <p>9860 6004 3998 2916 (Natalya Romanova)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Старт клуба</strong>
+                            <p>31 января — установочная встреча<br>14 февраля — бизнес-ланч с экспертом</p>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="https://t.me/+QlhyANcyRmExNDQy" class="social-link" aria-label="Telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="images/logo.jpg" alt="ClubPro" class="logo-img"> Club<span class="highlight">Pro</span>
+                    </a>
+                    <p>Бизнес-клуб по личным приглашениям для предпринимателей сферы туризма. Живое общение, реальный опыт, конкретные решения.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <a href="#about">О клубе</a>
+                    <a href="#benefits">Преимущества</a>
+                    <a href="#program">Программа</a>
+                    <a href="#testimonials">Отзывы</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Контакты</h4>
+                    <a href="#contact">Как вступить</a>
+                    <a href="https://t.me/+QlhyANcyRmExNDQy" target="_blank">Telegram-чат</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ClubPro. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
