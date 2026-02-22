@@ -419,7 +419,7 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 40px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .stat {
@@ -442,6 +442,7 @@ ul {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-top: 4px;
+    white-space: nowrap;
 }
 
 .stat-divider {
