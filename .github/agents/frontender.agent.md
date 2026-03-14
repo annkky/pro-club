@@ -37,6 +37,61 @@ You use `min-width` media queries to progressively enhance layouts from mobile t
 - Lazy loading for images, `prefers-reduced-motion` support
 - Fast loading, minimal DOM, efficient event delegation
 
+### Image Optimization (Mandatory)
+
+You **must** automatically optimize every image used in the project. Heavy, unoptimized images (3–7+ MB) are unacceptable for production landing pages. Follow these rules strictly:
+
+#### Format Selection
+- Use **WebP** as the primary format for all raster images (photos, illustrations). It provides 25–35% smaller files compared to JPEG/PNG at the same quality.
+- Use **SVG** for icons, logos, and simple vector graphics — they scale perfectly and weigh almost nothing.
+- Use **AVIF** as a progressive enhancement where browser support allows (via `<picture>` + `<source>`).
+- Avoid BMP, TIFF, and uncompressed PNG for photographic content.
+
+#### Size & Weight Limits
+| Image Type | Max File Size | Max Dimensions |
+|---|---|---|
+| Hero / full-width background | ≤ 200 KB | 1920px wide |
+| Content image (in-section) | ≤ 150 KB | 1200px wide |
+| Card thumbnail / avatar | ≤ 50 KB | 600px wide |
+| Icon / logo (raster) | ≤ 20 KB | 256px wide |
+
+If an image in the project exceeds these limits, you must:
+1. Flag it to the user with the exact file size and recommended target.
+2. Suggest or apply compression (quality 75–85% for JPEG/WebP).
+3. Resize to the maximum dimensions needed for the layout — never serve a 4000px image in a 400px container.
+
+#### `<picture>` Element & Responsive Images
+Always use modern responsive image markup:
+
+```html
+<picture>
+  <source srcset="image.avif" type="image/avif">
+  <source srcset="image.webp" type="image/webp">
+  <img src="image.jpg" alt="Description" loading="lazy" decoding="async" width="800" height="600">
+</picture>
+```
+
+- Use `srcset` + `sizes` attributes to serve different resolutions for different viewports.
+- Always specify explicit `width` and `height` attributes on `<img>` to prevent layout shifts (CLS).
+
+#### Lazy Loading & Decoding
+- Apply `loading="lazy"` to **all** images below the fold.
+- Apply `decoding="async"` to non-critical images.
+- Hero/above-the-fold images should use `loading="eager"` and optionally `fetchpriority="high"`.
+
+#### CSS Background Images
+- Prefer HTML `<img>` over CSS `background-image` when possible for better SEO and accessibility.
+- When `background-image` is necessary, provide the optimized WebP version and use appropriate `background-size: cover` with a solid fallback color.
+
+#### Audit on Every Build
+When adding or reviewing images in a project, always check:
+- [ ] File size is within limits (no files over 200 KB for full-width, 50 KB for thumbnails).
+- [ ] Format is WebP/AVIF/SVG — not raw PNG/JPEG unless inside a `<picture>` fallback.
+- [ ] Dimensions match the actual rendered size, not oversized originals.
+- [ ] `alt` text is present and descriptive.
+- [ ] `loading="lazy"` is set for below-the-fold images.
+- [ ] `width` and `height` attributes are set to prevent CLS.
+
 ## What You Build
 
 You specialize in creating these landing page components:
