@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pro Club — закрытое профессиональное сообщество владельцев туристического бизнеса. Живой опыт, разборы кейсов, сильное окружение.">
     <title>Pro Club — Туристический Бизнес Клуб</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +15,7 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <img src="images/logo.svg" alt="Pro Club" class="logo-img" style="width: 250px">
+                <img src="images/logo.svg" alt="Pro Club" class="logo-img">
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">О нас</a></li>
@@ -22,7 +25,7 @@
                 <li><a href="#contact">Контакты</a></li>
             </ul>
             <a href="https://forms.gle/MMpLpYTVHHQH5yyA7" target="_blank" class="btn btn-nav">Связаться</a>
-            <button class="burger" id="burger" aria-label="Меню">
+            <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -38,7 +41,7 @@
         </div>
         <div class="container hero-content">
             <div class="hero-photo" data-aos="fade-right">
-                <img src="images/photo.svg" alt="Pro Club" class="photo-img">
+                <img src="images/photo-2.svg" alt="Pro Club" class="photo-img">
             </div>
             <div class="hero-text">
                 <div class="hero-badge" data-aos="fade-down">
@@ -67,7 +70,7 @@
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat">
-                        <span class="stat-number"><span data-target="100">100</span>+</span>
+                        <span class="stat-number" data-target="100" data-suffix="+">0</span>
                         <span class="stat-label">Партнёрских связей и контактов</span>
                     </div>
                     <div class="stat-divider"></div>
@@ -195,7 +198,7 @@
                     Мы открываем приём заявок раз в месяц всего на 3 дня. В этот период вы можете подать заявку на вступление, 
                     после чего она проходит рассмотрение, и наша команда связывается с вами для дальнейших шагов.
                 </p>
-                <div style="text-align: center; margin-top: 32px;">
+                <div class="membership-cta">
                     <a href="https://forms.gle/MMpLpYTVHHQH5yyA7" target="_blank" class="btn btn-primary btn-lg">
                         Заполнить анкету
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -350,7 +353,7 @@
                         </div>
                         <div>
                             <strong>Telegram-чат клуба</strong>
-                            <p><a href="https://t.me/club_pro_uz" target="_blank" style="color: var(--purple-400);">Перейти в чат</a></p>
+                            <p><a href="https://t.me/club_pro_uz" target="_blank" class="contact-link">Перейти в чат</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -359,7 +362,7 @@
                         </div>
                         <div>
                             <strong>Вступление в клуб</strong>
-                            <p><a href="https://forms.gle/MMpLpYTVHHQH5yyA7" target="_blank" style="color: var(--purple-400);">Заполнить анкету</a></p>
+                            <p><a href="https://forms.gle/MMpLpYTVHHQH5yyA7" target="_blank" class="contact-link">Заполнить анкету</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -367,8 +370,8 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                         </div>
                         <div>
-                            <strong>Заявки на Март</strong>
-                            <p>с 22.02 до 28.02</p>
+                            <strong>Набор участников</strong>
+                            <p>Ежемесячно, 3 дня приёма заявок</p>
                         </div>
                     </div>
                     <div class="contact-socials">
@@ -389,7 +392,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <img src="images/logo.svg" alt="Pro Club" class="logo-img"> Pro Club <span class="highlight">Go</span>
+                        <img src="images/logo.svg" alt="Pro Club" class="logo-img">
                     </a>
                     <p>Бизнес-клуб по личным приглашениям для предпринимателей сферы туризма. Живое общение, реальный опыт, конкретные решения.</p>
                 </div>
@@ -407,7 +410,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 <span class="highlight">Pro Club</span>. Все права защищены.</p>
+                <p>&copy; 2026 <span class="highlight">Pro Club</span>. Все права защищены.</p>
             </div>
         </div>
     </footer>

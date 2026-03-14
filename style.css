@@ -202,7 +202,8 @@ ul {
 
 .logo-img {
     height: 92px;
-    width: auto;
+    width: 250px;
+    max-width: 250px;
     object-fit: contain;
     margin-right: 2px;
 }
@@ -237,6 +238,14 @@ ul {
 }
 
 .nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.nav-active {
+    color: var(--purple-400);
+}
+
+.nav-links a.nav-active::after {
     width: 100%;
 }
 
@@ -1206,6 +1215,23 @@ ul {
     transform: translateY(-3px);
 }
 
+/* === Contact Link === */
+.contact-link {
+    color: var(--purple-400);
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    color: var(--purple-300);
+    text-decoration: underline;
+}
+
+/* === Membership CTA === */
+.membership-cta {
+    text-align: center;
+    margin-top: 32px;
+}
+
 /* === Footer === */
 .footer {
     padding: 60px 0 0;
@@ -1534,7 +1560,7 @@ ul {
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    transition: all var(--transition);
+    transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background var(--transition), box-shadow var(--transition);
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
@@ -1560,5 +1586,54 @@ ul {
         right: 20px;
         width: 44px;
         height: 44px;
+    }
+}
+
+/* === Focus Styles (Accessibility) === */
+.btn:focus-visible,
+.nav-links a:focus-visible,
+.social-link:focus-visible,
+.burger:focus-visible,
+.scroll-to-top:focus-visible,
+.contact-link:focus-visible {
+    outline: 2px solid var(--purple-400);
+    outline-offset: 3px;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .hero-orb {
+        animation: none;
+    }
+
+    .scroll-dot {
+        animation: none;
+    }
+
+    .badge-dot {
+        animation: none;
+    }
+}
+
+/* === iOS background-attachment fix === */
+@supports (-webkit-touch-callout: none) {
+    .hero,
+    .about,
+    .program,
+    .cta {
+        background-attachment: scroll;
     }
 }

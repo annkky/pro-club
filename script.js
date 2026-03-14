@@ -4,27 +4,40 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // === Check reduced motion preference ===
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // === Navbar scroll ===
     const navbar = document.getElementById('navbar');
-    const handleScroll = () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // === Burger menu ===
     const burger = document.getElementById('burger');
     const navLinks = document.getElementById('navLinks');
 
     burger.addEventListener('click', () => {
+        const isActive = !burger.classList.contains('active');
         burger.classList.toggle('active');
         navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        burger.setAttribute('aria-expanded', isActive);
+        document.body.style.overflow = isActive ? 'hidden' : '';
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            burger.classList.remove('active');
+            navLinks.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            burger.focus();
+        }
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             burger.classList.remove('active');
             navLinks.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         });
     });
@@ -44,6 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
             countersAnimated = true;
             counters.forEach(counter => {
                 const target = parseInt(counter.dataset.target);
+                const suffix = counter.dataset.suffix || '';
+                
+                if (prefersReducedMotion) {
+                    counter.textContent = target + suffix;
+                    return;
+                }
+
                 const duration = 2000;
                 const step = target / (duration / 16);
                 let current = 0;
@@ -51,19 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const updateCounter = () => {
                     current += step;
                     if (current < target) {
-                        counter.textContent = Math.floor(current);
+                        counter.textContent = Math.floor(current) + suffix;
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.textContent = target;
+                        counter.textContent = target + suffix;
                     }
                 };
                 updateCounter();
             });
         }
     };
-
-    window.addEventListener('scroll', animateCounters, { passive: true });
-    animateCounters();
 
     // === AOS (Animate On Scroll) ===
     const observerOptions = {
@@ -74,10 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const delay = parseInt(entry.target.dataset.delay) || 0;
-                setTimeout(() => {
+                if (prefersReducedMotion) {
                     entry.target.classList.add('aos-animate');
-                }, delay);
+                } else {
+                    const delay = parseInt(entry.target.dataset.delay) || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('aos-animate');
+                    }, delay);
+                }
                 observer.unobserve(entry.target);
             }
         });
@@ -97,17 +118,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // === Parallax orbs on mouse move ===
-    const orbs = document.querySelectorAll('.hero-orb');
-    
-    document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 2;
-        const y = (e.clientY / window.innerHeight - 0.5) * 2;
+    if (!prefersReducedMotion) {
+        const orbs = document.querySelectorAll('.hero-orb');
+        
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
-        orbs.forEach((orb, i) => {
-            const speed = (i + 1) * 10;
-            orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            orbs.forEach((orb, i) => {
+                const speed = (i + 1) * 10;
+                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
         });
-    });
+    }
 
     // === Active nav link highlighting ===
     const sections = document.querySelectorAll('section[id]');
@@ -123,33 +146,43 @@ document.addEventListener('DOMContentLoaded', () => {
             const link = document.querySelector(`.nav-links a[href="#${id}"]`);
             if (link) {
                 if (scrollY >= top && scrollY < top + height) {
-                    link.style.color = 'var(--purple-400)';
+                    link.classList.add('nav-active');
                 } else {
-                    link.style.color = '';
+                    link.classList.remove('nav-active');
                 }
             }
         });
     };
 
-    window.addEventListener('scroll', highlightNav, { passive: true });
-
     // === Scroll to Top Button ===
     const scrollToTopBtn = document.getElementById('scrollToTop');
-    
-    const handleScrollToTop = () => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // === Unified scroll handler (single listener, all logic) ===
+    let ticking = false;
+
+    const onScroll = () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                // Navbar bg
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+                // Counters
+                animateCounters();
+                // Nav highlight
+                highlightNav();
+                // Scroll-to-top button
+                scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
+                ticking = false;
+            });
+            ticking = true;
         }
     };
 
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-    window.addEventListener('scroll', handleScrollToTop, { passive: true });
+    // Initial calls
+    onScroll();
 });
