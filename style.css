@@ -368,8 +368,8 @@ ul {
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 60px;
+    grid-template-columns: clamp(180px, 25vw, 380px) 1fr;
+    gap: clamp(24px, 4vw, 60px);
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -383,10 +383,10 @@ ul {
 
 .hero-photo .photo-img {
     width: 100%;
+    max-width: 380px;
     height: auto;
     border-radius: var(--radius-xl);
-    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);
-    border: 2px solid rgba(37, 99, 235, 0.2);
+    object-fit: contain;
 }
 
 .hero-text {
@@ -1355,8 +1355,8 @@ ul {
 /* === Responsive === */
 @media (max-width: 1024px) {
     .hero-content {
-        grid-template-columns: 300px 1fr;
-        gap: 40px;
+        grid-template-columns: clamp(160px, 22vw, 280px) 1fr;
+        gap: 32px;
     }
 
     .about-grid {
@@ -1411,15 +1411,23 @@ ul {
     }
 
     .hero-content {
-        grid-template-columns: 120px 1fr;
+        grid-template-columns: 2fr 3fr;
         gap: 20px;
         text-align: left;
+        align-items: start;
+        padding-top: 20px;
+    }
+
+    .hero-photo {
+        position: sticky;
+        top: 100px;
     }
 
     .hero-photo .photo-img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     .hero-text {
@@ -1524,7 +1532,39 @@ ul {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 100px 0 60px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-photo {
+        position: relative;
+        top: auto;
+        order: -1;
+    }
+
+    .hero-photo .photo-img {
+        width: 60vw;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-badge {
+        margin: 0 auto 16px;
+    }
+
     .hero-actions {
+        justify-content: center;
         flex-direction: column;
         align-items: center;
     }
@@ -1532,6 +1572,20 @@ ul {
     .hero-actions .btn {
         width: 100%;
         max-width: 300px;
+    }
+
+    .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-stats {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .stat {
+        text-align: center;
     }
 
     .stat-divider {
